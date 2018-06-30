@@ -2,8 +2,6 @@ creature_vermin
 
 [OBJECT:CREATURE]
 
-	** Silkmoth
-	
 [CREATURE:SILKMOTH_FANTASTIC] Bombyx mori
 	[DESCRIPTION:A tiny nocturnal insect.  It flies toward flames in the night.]
 	[NAME:silkmoth:silkmoths:silkmoth]
