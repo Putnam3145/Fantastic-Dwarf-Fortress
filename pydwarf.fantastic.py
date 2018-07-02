@@ -71,7 +71,7 @@ add_properties = [
     description = 'Adds a variety of interesting things to Dwarf Fortress.',
     compatibility = (pydwarf.df_0_34, pydwarf.df_0_40)
 )
-def materialsplus(df, entities=default_entities):
+def fantastic(df, entities=default_entities):
     # Add properties to various inorganics as defined by the add_properties dict
     errors = 0
     for identifier, re_id, addprops in add_properties:
