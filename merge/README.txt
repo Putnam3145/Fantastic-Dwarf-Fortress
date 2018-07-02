@@ -1,1 +1,0 @@
-This is a series of files which represent snippets of code which must be added to vanilla raws in order that the mod may work.

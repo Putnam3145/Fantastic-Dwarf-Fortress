@@ -4,7 +4,7 @@ import raws
 
 
 
-mats_dir = pydwarf.rel(__file__, 'raw/materialsplus')
+mats_dir = pydwarf.rel(__file__, 'raw/objects')
 
 default_entities = 'MOUNTAIN'
 
@@ -12,7 +12,6 @@ add_paths = [os.path.join(mats_dir, path) for path in [
     'inorganic_alloys_mat_plus.txt',
     'inorganic_metals_mat_plus.txt',
     'inorganic_other_mat_plus.txt',
-    'item_mat_plus.txt'
 ]]
 
 patch_paths = [os.path.join(mats_dir, path) for path in [
@@ -56,15 +55,20 @@ add_properties = [
         'PYROLUSITE',
         'METAL_ORE:MANGANESE_PUTNAM:100'
     ),
+    (
+        'titanium',
+        'RUTILE|ILMENITE',
+        'MATERIAL_REACTION_PRODUCT:KROLL_PROCESS:INORGANIC:TITANIUM_PUTNAM'
+    )
 ]
 
 
 
 @pydwarf.urist(
-    name = 'putnam.materialsplus',
+    name = 'putnam.fantastic',
     version = '1.0.1',
     author = ('Putnam', 'Sophie Kirschner'),
-    description = 'Adds a bunch of materials to the game.',
+    description = 'Adds a variety of interesting things to Dwarf Fortress.',
     compatibility = (pydwarf.df_0_34, pydwarf.df_0_40)
 )
 def materialsplus(df, entities=default_entities):
@@ -82,13 +86,13 @@ def materialsplus(df, entities=default_entities):
     
     for path in add_paths:
         pydwarf.log.debug('Adding file at %s.' % path)
-        df.add(path=path, loc='raw/objects')
+        df.add(path=path, loc='raw/merge')
     
     for path in patch_paths:
         response = pydwarf.urist.getfn('pineapple.easypatch')(
             df,
             files = path,
-            loc = 'raw/objects',
+            loc = 'raw/merge',
             permit_entities = entities
         )
         if not response: return response
