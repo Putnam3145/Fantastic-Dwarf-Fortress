@@ -86,13 +86,13 @@ def fantastic(df, entities=default_entities):
     
     for path in add_paths:
         pydwarf.log.debug('Adding file at %s.' % path)
-        df.add(path=path, loc='raw/merge')
+        df.add(path=path, loc='raw/objects')
     
     for path in patch_paths:
         response = pydwarf.urist.getfn('pineapple.easypatch')(
             df,
             files = path,
-            loc = 'raw/merge',
+            loc = 'raw/objects',
             permit_entities = entities
         )
         if not response: return response
