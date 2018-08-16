@@ -91,3 +91,10 @@ reaction_production_mat_plus
     [REAGENT:boulder:BOULDER:NONE:INORGANIC:POTASH_PUTNAM]
     [PRODUCT:100:4:BAR:NONE:POTASH:NO_SUBTYPE]
     [AUTOMATIC]
+
+[REACTION:DFHACK_REQUIRED_FOR_BUILDING]
+    [NAME:DFhack required]
+    [BUILDING:GOLEM_BUILDING_WORKSHOP:NONE]
+    [REAGENT:A:NONE:NONE:NONE:NONE][PRESERVE_REAGENT]
+    [DESCRIPTION:This building requires DFHack. If DFHack is not installed, it will do nothing. Sorry!]
+    [DESCRIPTION:If DFHack is installed, however, you will be able to see reactions on the right.]
