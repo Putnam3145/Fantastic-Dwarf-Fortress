@@ -1,5 +1,7 @@
 local eventful=require("plugins.eventful")
 
+eventful.removeNative('GOLEM_BUILDING_WORKSHOP')
+
 eventful.registerReaction('LUA_HOOK_GOLEM_HIGH_SPEED_STEEL_PUTNAM_FANTASTIC',function(reaction,reaction_product,unit,input_items,input_reagents,output_items,call_native)
     call_native.value=false
     dfhack.run_script('modtools/create-unit','-race','FANTASTIC_GOLEM','-caste','HIGH_SPEED_STEEL_PUTNAM','-domesticate','-setUnitToFort','-age','0','-name','CLOSE_DIVINE_FANTASTIC','-location','[',unit.pos.x-1,unit.pox.y,unit.pos.z,']')
