@@ -88,9 +88,29 @@ reaction_production_mat_plus
 [REACTION:POTASH_PREPARATION_FROM_BOULDER]
     [NAME:Break a potash boulder into potash bars]
     [BUILDING:ASHERY:NONE]
-    [REAGENT:boulder:BOULDER:NONE:INORGANIC:POTASH_PUTNAM]
+    [REAGENT:boulder:1:BOULDER:NONE:INORGANIC:POTASH_PUTNAM]
     [PRODUCT:100:4:BAR:NONE:POTASH:NO_SUBTYPE]
     [AUTOMATIC]
+
+[REACTION:AUTOINE_MAKE_MORE_AUTOINE]
+    [NAME:Duplicate autoine with bulk material]
+    [BUILDING:SMELTER:NONE]
+    [CATEGORY:FANTASTIC_DF]
+    [REAGENT:boulder:1:BOULDER:NONE:INORGANIC:NONE][WORTHLESS_STONE_ONLY]
+    [REAGENT:autoine:150:BAR:NONE:INORGANIC:AUTOINE_FANTASTIC][PRESERVE_REAGENT]
+    [PRODUCT:100:4:BAR:NONE:INORGANIC:AUTOINE_FANTASTIC][PRODUCT_DIMENSION:150] this makes it so that autoine will always be available on embark
+    [DESCRIPTION:With the proper process, autoine can turn other boulders into more autoine. This requires a seed and won't happen on its own.]
+    [SKILL:SMELT]
+
+[REACTION:MAKE_AUTOINE_BED]
+    [NAME:Make bed out of autoine]
+    [BUILDING:METALSMITH:NONE]
+    [CATEGORY:FANTASTIC_DF]
+    [REAGENT:autoine:600:BAR:NONE:INORGANIC:AUTOINE_FANTASTIC]
+    [PRODUCT:100:1:BED:NONE:INORGANIC:AUTOINE_FANTASTIC]
+    [DESCRIPTION:Due to its softness, autoine can be used by itself to make beds.]
+    [SKILL:METALCRAFT]
+
 
 [REACTION:DFHACK_REQUIRED_FOR_BUILDING]
     [NAME:DFhack required]

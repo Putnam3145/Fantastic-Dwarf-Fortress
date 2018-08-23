@@ -60,6 +60,11 @@ add_properties = [
         'titanium',
         'RUTILE|ILMENITE',
         'MATERIAL_REACTION_PRODUCT:KROLL_PROCESS:INORGANIC:TITANIUM_PUTNAM'
+    ),
+    (
+        'cobalt',
+        'COBALTITE',
+        'METAL_ORE:COBALT_PUTNAM:100'
     )
 ]
 
