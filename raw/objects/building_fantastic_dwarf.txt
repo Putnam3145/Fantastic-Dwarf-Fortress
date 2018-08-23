@@ -1,4 +1,4 @@
-building_fantastic
+building_fantastic_dwarf
 
 [OBJECT:BUILDING]
 

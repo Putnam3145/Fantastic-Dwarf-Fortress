@@ -6,7 +6,7 @@ import raws
 
 mats_dir = pydwarf.rel(__file__, 'raw/objects')
 
-default_entities = 'MOUNTAIN'
+dwarf_entities = 'MOUNTAIN'
 
 add_paths = [os.path.join(mats_dir, path) for path in [
     'inorganic_alloys_mat_plus.txt',
@@ -15,6 +15,7 @@ add_paths = [os.path.join(mats_dir, path) for path in [
 ]]
 
 patch_paths = [os.path.join(mats_dir, path) for path in [
+    'building_fantastic_dwarf.txt'
     'reaction_alloys_mat_plus.txt',
     'reaction_production_mat_plus.txt'
 ]]
@@ -71,7 +72,7 @@ add_properties = [
     description = 'Adds a variety of interesting things to Dwarf Fortress.',
     compatibility = (pydwarf.df_0_34, pydwarf.df_0_40)
 )
-def fantastic(df, entities=default_entities):
+def fantastic(df, dwarves=dwarf_entities):
     # Add properties to various inorganics as defined by the add_properties dict
     errors = 0
     for identifier, re_id, addprops in add_properties:
@@ -93,7 +94,7 @@ def fantastic(df, entities=default_entities):
             df,
             files = path,
             loc = 'raw/objects',
-            permit_entities = entities
+            permit_entities = dwarves
         )
         if not response: return response
     
