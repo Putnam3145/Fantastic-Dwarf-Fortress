@@ -1,0 +1,41 @@
+inorganic_metals_fantastic
+
+[OBJECT:INORGANIC]
+
+[INORGANIC:MITHRIL_FANTASTIC]
+    Mithril is harder to cut than steel, but not nearly as strong in compression, so impact fails easier.
+    Not only that, but it has a negative poisson ratio, making it much more elastic in compression than in tension.
+    In reality, this would also mean that it expands rather than contracts when pulled on, but Dwarf Fortress does not model this.
+    [USE_MATERIAL_TEMPLATE:METAL_TEMPLATE]
+	[STATE_NAME_ADJ:ALL_SOLID:mithril]
+	[STATE_NAME_ADJ:LIQUID:molten mithril]
+	[STATE_NAME_ADJ:GAS:boiling mithril]
+	[DISPLAY_COLOR:7:0:1]
+	[BUILD_COLOR:7:0:1]
+	[MATERIAL_VALUE:30]
+	[SPEC_HEAT:1000]
+	[MELTING_POINT:13600]
+	[BOILING_POINT:15400]
+	[SOLID_DENSITY:4000]
+	[LIQUID_DENSITY:3500]
+	[MOLAR_MASS:34508]
+	[IMPACT_YIELD:800000]
+	[IMPACT_FRACTURE:1000000]
+	[IMPACT_STRAIN_AT_YIELD:267]
+	[COMPRESSIVE_YIELD:800000]
+	[COMPRESSIVE_FRACTURE:1000000]
+	[COMPRESSIVE_STRAIN_AT_YIELD:267] bulk modulus 300 GPa
+	[TENSILE_YIELD:500000]
+	[TENSILE_FRACTURE:100000]
+	[TENSILE_STRAIN_AT_YIELD:25] young's modulus 2000 GPa
+	[TORSION_YIELD:500000]
+	[TORSION_FRACTURE:100000]
+	[TORSION_STRAIN_AT_YIELD:8]
+	[SHEAR_YIELD:500000]
+	[SHEAR_FRACTURE:100000]
+	[SHEAR_STRAIN_AT_YIELD:8] shear modulus 6000 GPa
+	[BENDING_YIELD:500000]
+	[BENDING_FRACTURE:100000]
+	[BENDING_STRAIN_AT_YIELD:8]
+	[MAX_EDGE:10000]
+	[STATE_COLOR:ALL:LAVENDER_BLUSH]
