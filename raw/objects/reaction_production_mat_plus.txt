@@ -115,6 +115,8 @@ reaction_production_mat_plus
 [REACTION:DFHACK_REQUIRED_FOR_BUILDING]
     [NAME:DFhack required]
     [BUILDING:GOLEM_BUILDING_WORKSHOP:NONE]
+    [BUILDING:FLYWHEEL_NS:NONE]
+    [BUILDING:FLYWHEEL_EW:NONE]
     [REAGENT:A:NONE:NONE:NONE:NONE][PRESERVE_REAGENT]
     [DESCRIPTION:This building requires DFHack. If DFHack is not installed, it will do nothing. Sorry!]
     [DESCRIPTION:If DFHack is installed, however, you will be able to see reactions on the right.]
