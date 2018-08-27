@@ -39,7 +39,7 @@ local function flywheel_action(workshop)
     local powerGained=math.max(-properMatInfo.max_torque,math.min(powerSurplus,properMatInfo.max_torque))
     our_energy.anon_1=math.min(properMatInfo.mag_energy,our_energy.anon_1+powerGained)
     if our_energy.anon_1>0 then
-        buildingHacks.setPower(workshop,math.max(0,-powerSurplus),1)
+        buildingHacks.setPower(workshop,math.min(properMatInfo.max_torque,our_energy.anon_1),1)
     else
         buildingHacks.setPower(workshop,0,1)
     end
@@ -97,3 +97,42 @@ eventful.onWorkshopFillSidebarMenu=function(workshop,callnative)
         overlay:show()
     end
 end
+
+local function smelter_action(workshop)
+    local machine=df.machine.find(workshop.machine.machine_id)
+    local our_energy=dfhack.buildings.getGeneralRef(workshop,df.general_ref_type.LANGUAGE)
+    if not our_energy then
+        local energy=df.general_ref_languagest:new()
+        energy.anon_1=0
+        workshop.general_refs:insert(energy)
+        our_energy=energy
+    end
+    --anon_1 here is energy left for operation
+    buildingHacks.setPower(workshop,0,energy.anon_1>0 and math.min(1000,energy.anon_1) or 5)
+    local _,consumed=buildingHacks.getPower(workshop)
+    energy.anon_1=math.max(0,energy.anon_1-math.min(machine.cur_power,consumed))
+end
+
+eventful.onReactionComplete.electrowinning=function(reaction,reaction_product,unit,input_items,input_reagents,output_items,call_native)
+    local buildingRaw=df.building_def.find(reaction.building.custom[0])
+    if buildingRaw and buildingRaw.code:find('POWERED_SMELTER_') then
+        local workshop=dfhack.buildings.findAtTile(unit.pos)
+        for k,v in ipairs(input_reagents) do
+            if buildingRaw.code:find('power/') then 
+                local our_energy=dfhack.buildings.getGeneralRef(workshop,df.general_ref_type.LANGUAGE)
+                if not our_energy then
+                    local energy=df.general_ref_languagest:new()
+                    energy.anon_1=0
+                    workshop.general_refs:insert(energy)
+                    our_energy=energy
+                end
+                our_energy.anon_1=tonumber(buildingRaw.code:sub(1+buildingRaw.code:find('/.*')))
+            end
+        end
+    end
+end
+
+buildingHacks.registerBuilding{name='POWERED_SMELTER_ELECTROWINNING',
+    action={1,smelter_action},
+    auto_gears=true
+}

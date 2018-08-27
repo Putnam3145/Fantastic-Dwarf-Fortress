@@ -52,20 +52,10 @@ add_properties = [
         '[METAL_ORE:CHROMIUM_PUTNAM:100][METAL_ORE:IRON:50]'
     ),
     (
-        'pyrolusite',
-        'PYROLUSITE',
-        'METAL_ORE:MANGANESE_PUTNAM:100'
-    ),
-    (
         'titanium',
         'RUTILE|ILMENITE',
         'MATERIAL_REACTION_PRODUCT:KROLL_PROCESS:INORGANIC:TITANIUM_PUTNAM'
     ),
-    (
-        'cobalt',
-        'COBALTITE',
-        'METAL_ORE:COBALT_PUTNAM:100'
-    )
 ]
 
 
