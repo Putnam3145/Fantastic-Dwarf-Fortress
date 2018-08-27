@@ -1,0 +1,14 @@
+item_tool_fantastic
+
+[OBJECT:ITEM]
+
+[ITEM_TOOL:ITEM_TOOL_FLYWHEEL_FANTASTIC]
+    [NAME:flywheel:flywheels]
+    [VALUE:30]
+    [SIZE:100000]
+    [FURNITURE]
+    [INCOMPLETE_ITEM]
+    [TILE:229]
+    [METAL_MAT]
+    [MATERIAL_SIZE:10]
+    [DESCRIPTION:A large disk used for storing power by spinning it to rapid speeds. Stronger materials allow for more energy storage.]

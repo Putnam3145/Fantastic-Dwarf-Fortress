@@ -1,1 +1,2 @@
 fantastic/register-golems
+fantastic/register-machines
