@@ -98,7 +98,7 @@ eventful.onWorkshopFillSidebarMenu=function(workshop,callnative)
     end
 end
 
-local function smelter_action(workshop)
+local function furnace_action(workshop)
     local machine=df.machine.find(workshop.machine.machine_id)
     local our_energy=dfhack.buildings.getGeneralRef(workshop,df.general_ref_type.LANGUAGE)
     if not our_energy then
@@ -113,9 +113,9 @@ local function smelter_action(workshop)
     energy.anon_1=math.max(0,energy.anon_1-math.min(machine.cur_power,consumed))
 end
 
-eventful.onReactionComplete.electrowinning=function(reaction,reaction_product,unit,input_items,input_reagents,output_items,call_native)
+eventful.onReactionComplete.powered_furnace=function(reaction,reaction_product,unit,input_items,input_reagents,output_items,call_native)
     local buildingRaw=df.building_def.find(reaction.building.custom[0])
-    if buildingRaw and buildingRaw.code:find('POWERED_SMELTER_') then
+    if buildingRaw and buildingRaw.code:find('POWERED_FURNACE_') then
         local workshop=dfhack.buildings.findAtTile(unit.pos)
         for k,v in ipairs(input_reagents) do
             if buildingRaw.code:find('power/') then 
@@ -132,7 +132,7 @@ eventful.onReactionComplete.electrowinning=function(reaction,reaction_product,un
     end
 end
 
-buildingHacks.registerBuilding{name='POWERED_SMELTER_ELECTROWINNING',
-    action={1,smelter_action},
+buildingHacks.registerBuilding{name='POWERED_FURNACE_ELECTROWINNING',
+    action={1,furnace_action},
     auto_gears=true
 }
