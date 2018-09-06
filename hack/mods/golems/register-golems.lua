@@ -1,7 +1,5 @@
 local eventful=require("plugins.eventful")
 
-eventful.removeNative('GOLEM_BUILDING_WORKSHOP')
-
 eventful.registerReaction('LUA_HOOK_GOLEM_HIGH_SPEED_STEEL_PUTNAM_FANTASTIC',function(reaction,reaction_product,unit,input_items,input_reagents,output_items,call_native)
     call_native.value=false
     dfhack.run_script('modtools/create-unit','-race','FANTASTIC_GOLEM','-caste','HIGH_SPEED_STEEL_PUTNAM','-domesticate','-setUnitToFort','-age','0','-name','CLOSE_DIVINE_FANTASTIC','-location','[',unit.pos.x-1,unit.pox.y,unit.pos.z,']')
@@ -265,3 +263,7 @@ eventful.registerReaction('LUA_HOOK_GOLEM_LUTETIUM_PUTNAM_FANTASTIC',function(re
     dfhack.run_script('modtools/create-unit','-race','FANTASTIC_GOLEM','-caste','LUTETIUM_PUTNAM','-domesticate','-setUnitToFort','-age','0','-name','CLOSE_DIVINE_FANTASTIC','-location','[',unit.pos.x-1,unit.pox.y,unit.pos.z,']')
 end)
 eventful.addReactionToShop('LUA_HOOK_GOLEM_LUTETIUM_PUTNAM_FANTASTIC','GOLEM_BUILDING_WORKSHOP')
+
+local buildmenu = reqscript("change-build-menu")
+
+buildmenu.ChangeBuilding('GOLEM_BUILDING_WORKSHOP','WORKSHOPS',true)
